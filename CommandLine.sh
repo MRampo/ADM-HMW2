@@ -4,6 +4,6 @@ for i in $arr
 do :
     if [ $i == -1 ];
     then echo User was not found;
-    else grep $i instagram_profiles.csv | awk '{ print $1, $2, $3, $4}';
+    else awk -F '\t' -v i=$i '$1 == i {print $1, $2, $3, $4}' instagram_profiles.csv;
     fi
 done
