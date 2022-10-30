@@ -3,6 +3,9 @@ def ciao_ciao(x):
 
 
 def time_intervals(intervals):
+    posts_datatable = dt.fread("instagram_posts.csv")
+    posts=posts_datatable.to_pandas()
+    
     posts2=posts[['cts','post_id']]
     posts2['cts'] = pd.to_datetime(posts2['cts']).dt.time
     f, ax = plt.subplots(figsize=(15,5)) # set the size that you'd like (width, height)
